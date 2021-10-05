@@ -41,8 +41,24 @@ for i in range(len(arrs)):
     print("Test case",i+1)
     ans = []
     for j in range(len(ss[i])):
-        print("    Sub-test case",j+1)
-        print("    ",subsetProb(arrs[i], ss[i][j]))
+        print("    Sub-test case",j+1,"-",subsetProb(arrs[i], ss[i][j]))
     print(" ")
 
+#%%
+'''
+3. Equal sum partition:
+    State if there exist a partition of the array which has equal sum
+'''
+
+def eqlsumPart(arr):
+    s = sum(arr)
+    if s%2 == 1:
+        return False
+    else:
+        return subsetProb(arr, s//2)
+
+# test cases
+arrs = [[1,11,5,7],[5,7,9,5],[1,2,3,6],[16,15,20,45]]
+for i in range(len(arrs)):
+    print("Test case",i+1,"-",eqlsumPart(arrs[i]))
 #%%
